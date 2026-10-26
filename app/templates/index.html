@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081321">
+  <title>PhishGuard — Understand the Risk</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+  <header class="topbar"><a class="brand" href="/" aria-label="PhishGuard home"><span
+        class="brand-mark">P</span><span>Phish<span class="accent">Guard</span><small>EXPLAINABLE URL
+          RISK</small></span></a><span class="local-badge"><i></i> Offline analysis · URL is not opened</span></header>
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">URL SECURITY ANALYZER</div>
+      <h1>Understand the Risk.<br><span class="accent">See the Evidence.</span></h1>
+      <p>Inspect URL structure and transparent security indicators before you interact with a suspicious link.</p>
+    </section>
+    <section class="panel analyzer"><label for="urlInput">URL to analyze</label>
+      <div class="input-row"><input id="urlInput" type="text" maxlength="4096" placeholder="https://example.com/login"
+          autocomplete="off" spellcheck="false"><button id="analyzeBtn" type="button">Analyze URL <span
+            aria-hidden="true">→</span></button></div>
+      <div class="input-meta"><span>We analyze the text only. We never visit the submitted URL.</span><span
+          id="charCount">0 / 4096</span></div>
+      <div class="samples"><span>Try a demo:</span><button class="sample" data-url="https://example.com/">Ordinary
+          example</button><button class="sample" data-url="http://192.0.2.10/login@verify-account.example.top">IP &amp;
+          structure demo</button><button class="sample" data-url="https://bit.ly/demo-link">Shortener demo</button>
+      </div>
+      <p class="sample-note">Demonstration inputs only; examples are not live threat checks.</p>
+    </section>
+    <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+    <section id="results" hidden>
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">ANALYSIS REPORT</div>
+          <h2>Assessment overview</h2>
+        </div><span class="report-tag">STRUCTURAL CHECK</span>
+      </div>
+      <div class="result-grid">
+        <article class="panel risk-card" id="riskCard">
+          <div class="card-label">OBSERVED RISK CATEGORY</div>
+          <div id="riskIcon" class="risk-icon" aria-hidden="true">!</div>
+          <h3 id="riskCategory">—</h3>
+          <p id="riskExplanation"></p>
+          <div class="score-line"><span>Rule score</span><strong id="ruleScore">0 / 100</strong></div>
+          <div class="score-track"><span id="scoreBar"></span></div><small>Application-defined score, not a
+            probability.</small>
+        </article>
+        <article class="panel host-card">
+          <div class="card-label">PARSED DESTINATION</div>
+          <div class="host-value" id="hostname">—</div>
+          <div class="detail-row"><span>Normalized URL</span><code id="normalizedUrl">—</code></div>
+          <div class="detail-row"><span>Machine learning</span><strong id="mlStatus">—</strong></div>
+          <div class="detail-row"><span>Threat intelligence</span><strong>Not queried</strong></div>
+          <div class="notice">A low observed risk result is not a guarantee of safety.</div>
+        </article>
+      </div>
+      <article class="panel section-panel">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">WHY IT WAS FLAGGED</div>
+            <h2>Security indicators</h2>
+          </div><span id="findingCount" class="count-pill">0 findings</span>
+        </div>
+        <div id="findings" class="findings"></div>
+      </article>
+      <article class="panel section-panel">
+        <div class="eyebrow">FEATURE EXTRACTION</div>
+        <h2>URL characteristics</h2>
+        <div id="features" class="features-grid"></div>
+        <p id="domainNote" class="muted tiny"></p>
+      </article>
+      <article class="panel section-panel">
+        <div class="eyebrow">NEXT STEPS</div>
+        <h2>Recommended precautions</h2>
+        <ul id="precautions" class="precautions"></ul>
+      </article>
+    </section>
+    <section class="disclaimer"><span class="shield">ⓘ</span>
+      <div><strong>Important limitation</strong>
+        <p>PhishGuard provides an educational, structure-based risk assessment. It does not visit URLs, check a live
+          threat database, or guarantee that a site is safe. Legitimate URLs may trigger indicators, and phishing URLs
+          may evade them.</p>
+      </div>
+    </section>
+  </main>
+  <script src="/static/app.js" defer></script>
+</body>
+
+</html

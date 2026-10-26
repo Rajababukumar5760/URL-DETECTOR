@@ -1,0 +1,3 @@
+# Dataset directory
+
+Place a legally obtained and documented labeled URL CSV here for optional model training. Required columns by default: `url,label`, with `1` meaning phishing and `0` meaning benign. Keep source name, retrieval date, license/terms, collection period, labeling method, and known limitations in your project notes. No dataset is bundled and no dataset is downloaded automatically. Do not upload private or restricted datasets to GitHub.

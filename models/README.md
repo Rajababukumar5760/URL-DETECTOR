@@ -1,0 +1,3 @@
+# Model artifacts
+
+No trained model is included by default. This is intentional: a model must not be represented as trained without a documented labeled dataset and an executed evaluation. Run `python scripts/train_model.py --csv data/your_labeled_dataset.csv` only after checking the dataset source, license, label meanings, and quality. The script saves `phishing_model.joblib` and `evaluation.json`; both are git-ignored by default.
